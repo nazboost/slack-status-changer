@@ -1,3 +1,4 @@
+from datetime import datetime
 import json
 import os
 import subprocess
@@ -131,16 +132,22 @@ def job():
     # Execute  periodically
     ssid = get_ssid(device_os=os.name)
 
-    if ssid in list(config['ssid'].keys()):
+    if ssid == 'no_connection':
+        pass
+
+    elif ssid in list(config['ssid'].keys()):
         change_slack_status(
             status_text=config['ssid'][ssid]['status_text'],
             status_emoji=config['ssid'][ssid]['status_emoji']
         )
+
     else:
         change_slack_status(
             status_text='Out',
             status_emoji=':japan:'
         )
+
+    print('Job runned at', datetime.now().strftime("%Y/%m/%d %H:%M:%S"))
 
 
 if __name__ == '__main__':
