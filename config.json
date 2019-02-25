@@ -1,0 +1,12 @@
+{
+    "ssid": {
+        "wpa.tus.ac.jp": {
+            "status_text": "Lab",
+            "status_emoji": ":tus:"
+        },
+        "459891075871": {
+            "status_text": "House",
+            "status_emoji": ":house:"
+        }
+    }
+}
