@@ -1,5 +1,5 @@
-from datetime import datetime
 import json
+import logging
 import os
 import subprocess
 import sys
@@ -14,6 +14,10 @@ import settings
 # Load config
 with open('config.json') as f:
     config = json.load(f)
+
+# Logging settings
+formatter = '%(levelname)s: %(asctime)s: %(message)s'
+logging.basicConfig(level=logging.INFO, format=formatter)
 
 
 def get_ssid(device_os='posix'):
@@ -147,7 +151,7 @@ def job():
             status_emoji=':japan:'
         )
 
-    print('Job runned at', datetime.now().strftime("%Y/%m/%d %H:%M:%S"))
+    print('Connect to', ssid)
 
 
 if __name__ == '__main__':
@@ -160,7 +164,8 @@ if __name__ == '__main__':
 
     job()
 
-    schedule.every(30).minutes.do(job)
+    schedule.every(10).seconds.do(job)
+    # schedule.every(30).minutes.do(job)
     while True:
         schedule.run_pending()
         time.sleep(1)
