@@ -11,7 +11,7 @@ I recommend execute this application on Python 3.6 or higher on linux or mac.
 ## Usage
 1. First, you should clone this repository.
 
-2. Rename .env.sample file to .env and add value of `client_id`, `client_secret` and `verification_token`.
+2. Rename .env.sample file to .env and add value of `client_id` and `client_secret`.
 
 3. Get temporary code to exchange with access token.  
    You can do it from the link above, or you can also use the `authorize()` function of [slack_status_changer.py](https://github.com/nazboost/slack-status-changer/blob/master/slack_status_changer.py).
