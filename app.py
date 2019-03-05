@@ -1,3 +1,8 @@
+"""
+This script is a main script of Slack Status Changer.
+Each user must authenticate and run this script locally.
+"""
+
 import json
 import logging
 import os
